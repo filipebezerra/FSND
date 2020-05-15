@@ -201,6 +201,13 @@ def requires_auth(permission=""):
     return requires_auth_decorator
 
 
+# Authorization Code Flow URL (DOMAIN: fsnd-auth2.auth0.com)
+# https://fsnd-auth2.auth0.com/authorize?audience=image&response_type=token&client_id=wf608uGgNIHRGCSHqivJp3QKOYsJoPYN&redirect_uri=http://localhost:8080/login-results&state=BasicFlaskAuth
+
+# Authorization Code Flow URL (DOMAIN: fbs-fsnd.auth0.com)
+# https://fbs-fsnd.auth0.com/authorize?audience=coffee_shop_full_stack&response_type=token&client_id=xveV7CJniwu2JVEiEm4WN5jI3AIJ4NIN&redirect_uri=http://127.0.0.1:5000/login-results&state=BasicFlaskAuth
+
+
 @app.route("/images")
 @requires_auth('get:images')
 def get_images(payload):

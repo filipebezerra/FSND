@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "7ab00300-c01d-4f3b-b65c-4dad7a68cfbf",
+		"name": "FSND > BasicFlaskAuth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Headers with No Auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e85f3857-77bf-4c32-8b49-f34c28420a2e",
+						"exec": [
+							"pm.test(\"Test Status is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"})",
+							"",
+							"pm.test(\"Test Body is a 401 Unauthorized\", function () {",
+							"    pm.response.to.be.error;",
+							"    var textError = pm.response.text();",
+							"    pm.expect(textError).to.contain(\"401 Unauthorized\");",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/headers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"headers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Headers Invalid Auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "13ba19d6-6254-4f22-8895-b42b707deff1",
+						"exec": [
+							"pm.test(\"Test Status is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"})",
+							"",
+							"pm.test(\"Test Body is a 401 Unauthorized\", function () {",
+							"    pm.response.to.be.error;",
+							"    var textError = pm.response.text();",
+							"    pm.expect(textError).to.contain(\"401 Unauthorized\");",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/headers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"headers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Headers Key Not Found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2a0b0420-82d5-4308-9700-bf9ea5bdb26b",
+						"exec": [
+							"pm.test(\"Test Status is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"})",
+							"",
+							"pm.test(\"Test Body is a 400 Bad Request\", function () {",
+							"    pm.response.to.be.error;",
+							"    var textError = pm.response.text();",
+							"    pm.expect(textError).to.be.contain(\"400 Bad Request\");",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdSY2hIV1N1RFZFcWx3STFIaGVOcSJ9.eyJpc3MiOiJodHRwczovL2Zicy1mc25kLmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDEwNjA3Nzc0Nzk3NDIwNjM1NzIyMiIsImF1ZCI6ImNvZmZlZV9zaG9wX2Z1bGxfc3RhY2siLCJpYXQiOjE1ODg4NjYzMzYsImV4cCI6MTU4ODk1MjczNiwiYXpwIjoieHZlVjdDSm5pd3UySlZFaUVtNFdONWpJM0FJSjROSU4iLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpkcmlua3MtZGV0YWlsIl19.OdP8RMmHE6Q5z9f4y8lpr8LZl99bHyNhJLE7Hfx-0ZaihTxldTxcLLq37Btg10P5S8LGYNF1FdgXyA7NrOrX3VSEw15RMxTmTizIdwAsfhxqI5JMWw4NEd348UW9YFIe6KRkDBmgKGJ6gixhlDTu27WjJwSFdfPMydxzkdYnPYSX1YXXwtuvkPndDGtvmYZ_G27qsddzRnYVqkjKF3LrvznqzHF9owbJU_Vejxs0JEEL7O5kMzLUYGS680pN351l3ng4AmEpoT-NqPJGPyl_rfQ3PUro-x_uKyaT0Lrsp88k2v89BgkgvmCCB6LguFEzSMnhomhuvOZ2oZ7F2YidZw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/headers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"headers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Headers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0be73fe8-6633-40cd-9370-402e823eac55",
+						"exec": [
+							"pm.test(\"Test Status is 200\", function () {",
+							"    pm.response.to.be.ok;",
+							"})",
+							"",
+							"pm.test(\"Test Body is Access Granted\", function () {",
+							"    pm.response.to.be.withBody;",
+							"    var textData = pm.response.text();",
+							"    pm.expect(textData).to.be.equal(\"Access Granted\");",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Inl0cUpfdjdjbnN4V0Z3YUIybVd1aSJ9.eyJpc3MiOiJodHRwczovL2ZzbmQtYXV0aDIuYXV0aDAuY29tLyIsInN1YiI6Imdvb2dsZS1vYXV0aDJ8MTA2MDc3NzQ3OTc0MjA2MzU3MjIyIiwiYXVkIjpbImltYWdlIiwiaHR0cHM6Ly9mc25kLWF1dGgyLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE1ODk0ODgzNjgsImV4cCI6MTU4OTQ5NTU2OCwiYXpwIjoid2Y2MDh1R2dOSUhSR0NTSHFpdkpwM1FLT1lzSm9QWU4iLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIiwicGVybWlzc2lvbnMiOlsidmlldzppbWFnZXMiXX0.HpwE1ef711v9-9auKnuodahn_sSw8vZOh1DJZgIf2itRv6Zy--MHJysnXWjsrURRQzrz7wR9snu-vRgiXd2Jw-VoRqNExj-rs5kFkDCUT3V5l7QUCtwCxducaj1C_PpYbKdLSTL1qwTobA3jG8Sgh8ydVJzH7UPF2rdLJctHUGqxPn-o-98_vkcPNtOA3OlEgPoWye900FTgMkvcMKXof6G8WYMEPnnnYtFtrY-v6w7N6I9kuxtqLmXRTKnex-PJIV7Ktzb5llU634E1ul6RZ8bqbqKQeyBkCacUiuCMttA3KfQIZKPZx5gMVWeaWpS1Av9JQYi0xPp99UxdZp2hig",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/headers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"headers"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
