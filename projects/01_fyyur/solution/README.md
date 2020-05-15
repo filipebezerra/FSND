@@ -1,6 +1,10 @@
 Fyyur
 -----
 
+### Project reviews
+
+- [Review #1](https://review.udacity.com/?utm_campaign=ret_000_auto_ndxxx_submission-reviewed&utm_source=blueshift&utm_medium=email&utm_content=reviewsapp-submission-reviewed&bsft_clkid=4514e5d7-1d86-4ca0-9f0c-823b4e69c24f&bsft_uid=41fbbe1d-caad-4775-b74e-f4848e660feb&bsft_mid=d8103b3d-b68f-4277-b435-094376edaf8f&bsft_eid=6f154690-7543-4582-9be7-e397af208dbd&bsft_txnid=8082e485-a2b9-449b-a7f8-6230ba309690&bsft_mime_type=html&bsft_ek=2020-02-24T10%3A25%3A31Z#!/reviews/2119196)
+
 ### Introduction
 
 Fyyur is a musical venue and artist booking site that facilitates the discovery and bookings of shows between local performing artists and venues. This site lets you list new artists and venues, discover them, and list shows with artists as a venue owner.
@@ -38,7 +42,7 @@ Our tech stack will include:
   ├── forms.py *** Your forms
   ├── requirements.txt *** The dependencies we need to install with "pip3 install -r requirements.txt"
   ├── static
-  │   ├── css 
+  │   ├── css
   │   ├── font
   │   ├── ico
   │   ├── img
