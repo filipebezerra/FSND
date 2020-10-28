@@ -1,0 +1,49 @@
+[default]
+FLASK_APP = "thecrew.py"
+FLASK_SECRET_KEY = "@format {env[FLASK_SECRET_KEY]}"
+SQLALCHEMY_TRACK_MODIFICATIONS = false
+SQLALCHEMY_RECORD_QUERIES = true
+AUTH0_DOMAIN = "the-crew-fsnd.us.auth0.com"
+AUTH0_API_AUDIENCE = "thecrew-api"
+AUTH0_ALGORITHMS = ['RS256']
+AUTH0_CLIENT_ID = "ZqzyeEBInojE8HKbHC94gM5Sv2xFLRMI"
+MAIL_SERVER = "@jinja {{env[MAIL_USERNAME] | default(None)}}"
+MAIL_PORT = "@jinja {{env[MAIL_USERNAME] | default(25)}}"
+MAIL_USE_TLS = "@jinja {{env[MAIL_USERNAME] | default(true)}}"
+MAIL_USERNAME = "@jinja {{env[MAIL_USERNAME] | default(None)}}"
+MAIL_PASSWORD = "@jinja {{env[MAIL_USERNAME] | default(None)}}"
+COMPRESS_MIMETYPES = [
+    'text/html',
+    'text/css',
+    'application/json',
+    'application/javascript'
+]
+COMPRESS_LEVEL = 6
+COMPRESS_MIN_SIZE = 500
+CACHE_TYPE = "redis"
+CACHE_DEFAULT_TIMEOUT = 300
+CACHE_KEY_PREFIX = "cache."
+THECREW_API_VERSION = "v1"
+THECREW_DATE_FORMAT = "%Y-%m-%d"
+THECREW_OBJECTS_PER_PAGE = 10
+THECREW_LOG_TO_STDOUT = false
+THECREW_ADMINS = ['filipebzerra@gmail.com']
+
+[development]
+FLASK_SECRET_KEY = "dev_secret_key"
+SQLALCHEMY_DATABASE_URI = "@jinja sqlite:///{{'data-dev.sqlite' | abspath}}"
+CACHE_REDIS_URL = "redis://localhost:6379/0"
+
+[testing]
+TESTING = true
+FLASK_SECRET_KEY = ""
+SQLALCHEMY_DATABASE_URI = "sqlite://"
+CACHE_REDIS_URL = "redis://localhost:6379/0"
+AUTH0_GRANT_TYPE = "client_credentials"
+AUTH0_CLIENT_ID = "nHaRDZC2Ro6Qvo2bnj58WmukR2UDHd4b"
+AUTH0_CLIENT_SECRET = "@format {env[AUTH0_CLIENT_SECRET]}"
+
+[production]
+THECREW_LOG_TO_STDOUT = true
+SQLALCHEMY_DATABASE_URI = "@format {env[DATABASE_URL]}"
+CACHE_REDIS_URL = "@format {env[REDIS_URL]}"
