@@ -98,7 +98,7 @@ The main challenge with this project it was to put all the pieces together since
 
 So TheCrew API is the backend application that serves and accepts JSON data for our applications and third-party applications.
 
-- Project URL: https://github.com/filipebezerra/FSND/tree/feature/thecrew-capstone-solution/projects/capstone/thecrew_full_stack/thecrew-app-backend-api-python
+- Project URL: [/projects/capstone/thecrew_full_stack/thecrew-app-backend-api-python](./projects/capstone/thecrew_full_stack/thecrew-app-backend-api-python)
 - Built between August/20 and September/20
 
 ### Tech Stack:
